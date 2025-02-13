@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirror Number Game - Enhanced</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="rulesPopup" class="rules-popup">
+        <div class="rules-content">
+            <h2>How to Play</h2>
+            <ul>
+                <li>Match the number shown in the mirror within the time limit</li>
+                <li>Use number pad or keyboard (1-9) to input numbers</li>
+                <li>Get 10 points for each correct answer</li>
+                <li>Build combos for bonus points!</li>
+                <li>Time limit decreases as you score more points</li>
+            </ul>
+            <button id="startGame" class="play-btn">Start Game</button>
+        </div>
+    </div>
+    <div class="game-container">
+        <div class="score">Score: <span id="scoreValue">0</span></div>
+        <div class="mirror">
+            <div id="mirrorNumber">?</div>
+        </div>
+        <div class="numpad">
+            <button class="num-btn" data-number="1">1</button>
+            <button class="num-btn" data-number="2">2</button>
+            <button class="num-btn" data-number="3">3</button>
+            <button class="num-btn" data-number="4">4</button>
+            <button class="num-btn" data-number="5">5</button>
+            <button class="num-btn" data-number="6">6</button>
+            <button class="num-btn" data-number="7">7</button>
+            <button class="num-btn" data-number="8">8</button>
+            <button class="num-btn" data-number="9">9</button>
+        </div>
+        <div id="timer"></div>
+        <div id="feedback"></div>
+        <p><a href="../index.html" style="color: #3498db; text-decoration: none;">← Back to Version Select</a></p>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

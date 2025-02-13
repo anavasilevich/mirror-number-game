@@ -1,0 +1,198 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #2c3e50;
+    font-family: Arial, sans-serif;
+}
+
+.game-container {
+    text-align: center;
+    background-color: #34495e;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.score {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.mirror {
+    width: 200px;
+    height: 150px;
+    margin: 20px auto;
+    background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+#mirrorNumber {
+    font-size: 72px;
+    color: #2c3e50;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.numpad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+    max-width: 300px;
+    margin: 20px auto;
+}
+
+.num-btn {
+    background-color: #3498db;
+    border: none;
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.num-btn:hover {
+    background-color: #2980b9;
+}
+
+.num-btn:active {
+    transform: scale(0.95);
+}
+
+#timer {
+    font-size: 24px;
+    margin: 10px 0;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+#feedback {
+    font-size: 20px;
+    margin: 10px 0;
+    min-height: 28px;
+    transition: transform 0.2s ease;
+}
+
+.correct {
+    color: #2ecc71;
+    animation: popIn 0.3s ease-out;
+}
+
+.incorrect {
+    color: #e74c3c;
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Rules Popup */
+.rules-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.rules-content {
+    background-color: #34495e;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    color: white;
+}
+
+.rules-content h2 {
+    color: #3498db;
+    margin-bottom: 1.5rem;
+}
+
+.rules-content ul {
+    text-align: left;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.rules-content .play-btn {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.rules-content .play-btn:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+}
+
+/* Fireworks */
+.firework {
+    position: fixed;
+    pointer-events: none;
+    z-index: 999;
+}
+
+@keyframes firework {
+    0% { transform: translate(-50%, -50%); width: 0; opacity: 1; }
+    50% { width: 100px; opacity: 1; }
+    100% { width: 200px; opacity: 0; }
+}
+
+@keyframes fireworkParticle {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.firework::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    aspect-ratio: 1;
+    background: radial-gradient(circle, #ff0 40%, transparent 70%);
+    animation: firework 0.8s ease-out forwards;
+}
+
+.firework::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1;
+    background: 
+        repeating-conic-gradient(
+            from 0deg,
+            #ff0 0deg 20deg,
+            transparent 20deg 40deg
+        );
+    animation: fireworkParticle 0.8s ease-out forwards;
+}
